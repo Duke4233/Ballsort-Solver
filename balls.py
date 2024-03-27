@@ -14,8 +14,7 @@ colors = {
 
 
 class ball:
-    def __init__(self, color, tube, slot):
+    def __init__(self, color):
         self.color = color
-        self.tube = tube
-        self.slot = slot
+
 

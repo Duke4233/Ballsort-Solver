@@ -1,17 +1,22 @@
 from balls import ball
 from tubes import tube
-from common import *
-def make_game():
+from balls import ball
+from common import colors
+
+
+def make_game(filename: str):
     file = open(filename, "r")
     file_text = file.readlines()
     game_tubes = []
     for line in file_text:
         tube_num = 0
-        new_tube = tube(4,)
+
         text_colors = line.split(" ")
+        new_tube = tube(len(text_colors), tube_num)  # TODO
         for color in text_colors:
-            slot_num = 0
-            new_ball = ball.ball(colors[color], tube_num, slot_num)
+            new_ball = ball(colors[color.strip('\n')])
+            new_tube.add_ball(new_ball)
+        tube_num += 1
+        game_tubes.append(new_tube)
 
     return game_tubes
-
